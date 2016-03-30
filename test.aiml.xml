@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<aiml>
+    <category>
+        <pattern>SEARCH PERSON <set name="clientName">*</set></pattern>
+        <template>search detail for <get name="clientName"/> are.</template>
+    </category>
+    <category>
+        <pattern>HI</pattern>
+        <template>HELLO <get name="clientName"/></template>
+    </category>
+    <category>
+        <pattern>HELLO</pattern>
+        <template><srai>HI</srai></template>
+    </category>
+       <category>
+        <pattern>DETAIL ABOUT PERSON *</pattern>
+        <template><srai>SEARCH PERSON <set name="clientName">*</set></srai></template>
+    </category>
+    <category>
+        <pattern>SHARE DETAILS ABOUT THE PERSON *</pattern>
+        <template><srai>SEARCH PERSON *</srai></template>
+    </category>
+
+</aiml>
