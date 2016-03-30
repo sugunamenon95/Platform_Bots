@@ -8,7 +8,7 @@ var slack = new slackAPI({
     'autoReconnect': true
 });
 
-// Slack on EVENT message, send data.
+//// Slack on EVENT message, send data.
 slack.on('message', function (data) {
     // If no text, return.
     //if (typeof data.text == 'undefined') return;
