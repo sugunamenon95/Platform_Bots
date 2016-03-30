@@ -4,7 +4,7 @@
 
 var telegram = require('telegram-bot-api');
 var api = new telegram({
-    token: '185368314:AAGXlchmh-lNjTp8jE72UTl7To5MyzoaLhA',
+    token: '<YOUR_TOKEN>',
     updates: {
         enabled: true,
         get_interval: 1000
@@ -14,7 +14,7 @@ var api = new telegram({
 //configuration for slack
 var slackAPI = require('slackbotapi');
 var slack = new slackAPI({
-    'token': 'xoxb-30170520690-fqxa8uti718NcZqmQeB4SdKj',
+    'token': '<YOUR_TOKEN>',
     'logging': true,
     'autoReconnect': true
 });
@@ -26,4 +26,4 @@ As soon as someone will message on the respective application it will go to aiml
 aimlHigh = require('aiml-high');
 interpreter.loadFiles(['./test.aiml.xml']);
 
-Command will be fetched and we will be directed to the common platform wherein required data will be fetched and a unifro answer format will be created to emit it to the requied paltform
+Command will be fetched and we will be directed to the common platform wherein required data will be fetched and a uniform answer format will be created to emit it to the requied paltform
