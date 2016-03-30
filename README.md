@@ -11,7 +11,7 @@ var api = new telegram({
     }
 });
 
-//configuration for slack
+#configuration for slack
 var slackAPI = require('slackbotapi');
 var slack = new slackAPI({
     'token': '<YOUR_TOKEN>',
@@ -21,7 +21,7 @@ var slack = new slackAPI({
 
 As soon as someone will message on the respective application it will go to aiml platform to fetch the command
 
-//AIML files and configuration
+#AIML files and configuration
 
 aimlHigh = require('aiml-high');
 interpreter.loadFiles(['./test.aiml.xml']);
