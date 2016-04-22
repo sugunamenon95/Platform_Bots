@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+    <title>Socket.IO Interface</title>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font: 13px Helvetica, Arial; }
+        form {  padding: 3px; position: fixed; bottom: 0; width: 100%; }
+        form input { border: 0; padding: 10px; width: 100%; margin-right: .5%; }
+        form button { width: 9%; background: grey ; border: solid; padding: 10px; }
+        #conversation { list-style-type: none; margin: 0; padding: 0; }
+        #conversation li { padding: 5px 10px; }
+        #q1,#q2,#q3 {border:solid}
+        #right div {position: relative; border-radius: 2em; border-color: white; border-style: solid ; background-color: #eeeeee; border-bottom-color: white }
+        #left div {height: 50px; position: relative}
+        #top-bar {background: radial-gradient(white, black); position: relative; overflow: hidden;}
+
+    </style>
+</head>
+<body>
+<section id="module">
+    <header id="top-bar">
+        <h1><center> Admin Panel </center></h1>
+    </header>
+    <p id="content"> </p>
+
+</section>
+<!--<ul id="messages"></ul>-->
+<form action="">
+    <button id="showtab">Show table</button>
+    <input id="q1" autocomplete="off" placeholder="General Query" />
+    <input id="q2" autocomplete="off" placeholder="Variant Query"/>
+    <input id="q3" autocomplete="off" placeholder="Answer"/><br>
+    <button id="add">Add</button>
+</form>
+<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+
+<script>
+    var socket = io();
+    //Get the pattern and the template from the textbox and emit them
+    $('#add').click(function() {
+        var que = document.getElementById('q1').value;
+        var ans = document.getElementById('q3').value;
+        console.log(que + '\n' + ans);
+        socket.emit('query', que, ans);
+    });
+
+    $('#showtab').click(function() {
+        socket.emit('DisplayTable',1);
+    });
+
+    socket.on('show',function(data) {
+        console.log(data);
+        document.getElementById('content').innerHTML = data;
+    });
+</script>
+</body>
+</html>
